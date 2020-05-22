@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
   bool _isReset = true;
 
   List<String> answers = [];
-  int _score = 0;
+  int _totalScore = 0;
 
   static const questions = [
     {"questionText" : 'What is your favorite color?',  "answers" : [{"text" : "Red", "score": 10 }, {"text" : "Blue", "score" : 20}, {"text" : "Green", "score": 13}, {"text":"Yellow", "score":15}]},
@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
 
   void _answerQuestion(String name, int score) {
     _isReset = false;
-    _score = _score + score;
+    _totalScore  += score;
     setState(() => _questionIndex = _questionIndex + 1);
     print("Answer is chosen : " + name);
     answers.add(name);
@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
 
   void _resetQuiz() {
     _isReset = true;
-    _score = 0;
+    _totalScore = 0;
     setState(() {
       _questionIndex = 0;
       answers = [];
@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp> {
       appBar: AppBar(
         title: Text("My First App"),
       ),
-      body: _questionIndex < questions.length || _isReset ? QuestionsWithAnswers(questions[_questionIndex], _answerQuestion) : FinalResult(answers, _resetQuiz, _score) ,
+      body: _questionIndex < questions.length || _isReset ? QuestionsWithAnswers(questions[_questionIndex], _answerQuestion) : FinalResult(answers, _resetQuiz, _totalScore) ,
     );
   }
 }

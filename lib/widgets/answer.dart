@@ -15,7 +15,7 @@ class Answer extends StatelessWidget {
         margin: EdgeInsets.only(left: 10, right: 10),
         child: RaisedButton(
           child: Text(_title),
-          onPressed: () => _answerQuestion(_title,  ),
+          onPressed: () => _answerQuestion(_title, _score),
           color: Colors.blue,
           textColor: Colors.white,
     ));
