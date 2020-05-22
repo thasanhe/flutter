@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 
 class FinalResult extends StatelessWidget{
 
-  List<String> answers;
+  final List<String> _answers;
+  final Function _resetQuiz;
 
-  FinalResult(this.answers);
+  FinalResult(this._answers, this._resetQuiz);
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +15,14 @@ class FinalResult extends StatelessWidget{
           child: Column(
             children : [
               Container(child : Text("You have done it!", style: TextStyle(fontSize: 23, color: Colors.white), textAlign: TextAlign.center,), width: double.infinity, color: Colors.green,),
-              ...answers.map((selection) => Container(
+              ..._answers.map((selection) => Container(
                 child : Text(selection, textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),),
                 padding: EdgeInsets.all(5),
-                margin: EdgeInsets.only(top: 5),color: Colors.blue, width: double.infinity,)).toList()
+                margin: EdgeInsets.only(top: 5),color: Colors.blue, width: double.infinity,)).toList(),
+              RaisedButton(
+                child: Text("Restart quiz"),
+                onPressed: _resetQuiz,
+              ),
               
             ]
           )
