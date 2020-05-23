@@ -1,7 +1,6 @@
 import 'package:first_app/factory/answerFactory.dart';
-import 'package:first_app/widgets/answer.dart';
 import 'package:first_app/widgets/question.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class QuestionsWithAnswers extends StatelessWidget {
 

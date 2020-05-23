@@ -1,6 +1,5 @@
 import 'package:first_app/widgets/final_result.dart';
 import 'package:first_app/widgets/questions_with_answers.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatefulWidget {
